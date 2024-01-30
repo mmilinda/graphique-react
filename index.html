@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <canvas id="myChart"></canvas>
+
+    <script>
+
+        let ctx = document.getElementById("myChart").getContext('2d')
+
+        let data = {
+            labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+            datasets: [{
+                label: 'Sondages',
+                data: [12, 19, 3, 4, 5, 10, 13],
+                backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Commentaires',
+                data: [10, 3, 13, 4, 5, 11, 8],
+                backgroundColor: 'rgba(100, 0, 0, 0.5)',
+                borderColor: 'rgba(100, 0, 0, 1)',
+                borderWidth: 3
+            }]
+        }
+
+        let myChart = new Chart(ctx, {
+            // type: 'line',
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        })
+
+        console.log(data)
+
+    </script>
+    
+</body>
+</html>
